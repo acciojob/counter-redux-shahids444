@@ -75,31 +75,89 @@ const Counter = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
-      <div className="bg-white rounded-2xl shadow-xl p-12 text-center max-w-md w-full">
-        <h1 className="text-6xl font-bold text-gray-800 mb-8 font-mono">
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      minHeight: '100vh', 
+      background: 'linear-gradient(135deg, #ebf8ff 0%, #dbeafe 100%)', 
+      padding: '32px' 
+    }}>
+      <div style={{ 
+        background: 'white', 
+        borderRadius: '16px', 
+        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', 
+        padding: '48px', 
+        textAlign: 'center', 
+        maxWidth: '400px', 
+        width: '100%' 
+      }}>
+        <h1 style={{ 
+          fontSize: '60px', 
+          fontWeight: 'bold', 
+          color: '#1f2937', 
+          marginBottom: '32px', 
+          fontFamily: 'monospace' 
+        }}>
           {count}
         </h1>
         
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-6">Counter App</h2>
+        <div>
+          <h2 style={{ 
+            fontSize: '24px', 
+            fontWeight: '600', 
+            color: '#374151', 
+            marginBottom: '24px' 
+          }}>
+            Counter App
+          </h2>
           
           <button
             onClick={handleIncrement}
-            className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg text-lg"
+            style={{ 
+              width: '100%', 
+              background: 'linear-gradient(90deg, #10b981 0%, #059669 100%)', 
+              color: 'white', 
+              fontWeight: '600', 
+              padding: '16px 32px', 
+              borderRadius: '12px', 
+              border: 'none', 
+              fontSize: '18px', 
+              cursor: 'pointer', 
+              marginBottom: '16px',
+              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.2s'
+            }}
+            onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+            onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
           >
             increment
           </button>
           
           <button
             onClick={handleDecrement}
-            className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg text-lg"
+            style={{ 
+              width: '100%', 
+              background: 'linear-gradient(90deg, #ef4444 0%, #dc2626 100%)', 
+              color: 'white', 
+              fontWeight: '600', 
+              padding: '16px 32px', 
+              borderRadius: '12px', 
+              border: 'none', 
+              fontSize: '18px', 
+              cursor: 'pointer',
+              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.2s'
+            }}
+            onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+            onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
           >
             decrement
           </button>
         </div>
         
-        <div className="mt-8 text-sm text-gray-500">
+        <div style={{ marginTop: '32px', fontSize: '14px', color: '#6b7280' }}>
           <p>Built with React & Custom Redux Pattern</p>
         </div>
       </div>
