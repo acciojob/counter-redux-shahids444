@@ -114,7 +114,7 @@ const Counter = () => {
           </h2>
           
           <button
-            data-testid="increment-btn"
+            data-testid="increment-btn"  // Add this line
             onClick={handleIncrement}
             style={{ 
               width: '100%', 
@@ -137,9 +137,8 @@ const Counter = () => {
           </button>
           
           <button
-            data-testid="decrement-btn" 
+            data-testid="decrement-btn"  // Add this line
             onClick={handleDecrement}
-          
             style={{ 
               width: '100%', 
               background: 'linear-gradient(90deg, #ef4444 0%, #dc2626 100%)', 
