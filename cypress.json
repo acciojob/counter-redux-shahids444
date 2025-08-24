@@ -1,9 +1,1 @@
-it('increase count on clicking increment & decrease on clicking decrease', () => {
-  cy.visit('/');
-  
-  cy.get('[data-testid="increment-btn"]').click();
-  cy.get('h1').should('contain', '1'); // Check if count increased
-  
-  cy.get('[data-testid="decrement-btn"]').click();
-  cy.get('h1').should('contain', '0'); // Check if count decreased
-});
+
