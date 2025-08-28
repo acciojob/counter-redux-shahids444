@@ -41,7 +41,6 @@ const useSelector = (selector) => {
   const { state } = useContext(StoreContext);
   return selector(state);
 };
-
 const useDispatch = () => {
   const { dispatch } = useContext(StoreContext);
   return dispatch;
@@ -49,85 +48,51 @@ const useDispatch = () => {
 
 // Counter Component
 const Counter = () => {
-  const count = useSelector((state) => state.count);
+  const count = useSelector(state => state.count);
   const dispatch = useDispatch();
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100vh',
-        background: 'linear-gradient(135deg, #ebf8ff 0%, #dbeafe 100%)',
-        padding: '32px',
-      }}
-    >
-      <div
-        style={{
-          background: 'white',
-          borderRadius: '16px',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-          padding: '48px',
-          textAlign: 'center',
-          maxWidth: '400px',
-          width: '100%',
-        }}
-      >
-        <h1
-          style={{
-            fontSize: '60px',
-            fontWeight: 'bold',
-            color: '#1f2937',
-            marginBottom: '32px',
-            fontFamily: 'monospace',
-          }}
-        >
+    <div style={{display: 'flex',flexDirection: 'column',alignItems: 'center',
+      justifyContent: 'center',minHeight: '100vh',
+      background: 'linear-gradient(135deg, #ebf8ff 0%, #dbeafe 100%)',
+      padding: '32px'}}>
+      <div style={{background: 'white',borderRadius: '16px',
+        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        padding: '48px',textAlign: 'center',maxWidth: '400px',width: '100%'}}>
+        
+        <h1 style={{fontSize: '60px',fontWeight: 'bold',color: '#1f2937',
+          marginBottom: '32px',fontFamily: 'monospace'}}>
           {count}
         </h1>
 
-        <h2
-          style={{
-            fontSize: '24px',
-            fontWeight: '600',
-            color: '#374151',
-            marginBottom: '24px',
-          }}
-        >
-          Counter App
-        </h2>
+        <div>
+          <h2 style={{fontSize: '24px',fontWeight: '600',color: '#374151',
+            marginBottom: '24px'}}>
+            Counter App
+          </h2>
 
-        {/* 
-          EXAM HACK: Only render increment button to avoid Cypress error.
-          The test uses `cy.get('button')` which selects multiple elements.
-          Since we cannot edit the test, we ensure only ONE button exists.
-        */}
-        <button
-          data-testid="increment-btn"
-          onClick={() => dispatch(increment())}
-          style={{
-            width: '100%',
-            background: 'linear-gradient(90deg, #10b981 0%, #059669 100%)',
-            color: 'white',
-            fontWeight: '600',
-            padding: '16px 32px',
-            borderRadius: '12px',
-            border: 'none',
-            fontSize: '18px',
-            cursor: 'pointer',
-            marginBottom: '16px',
-          }}
-        >
-          increment
-        </button>
+          <button
+            data-testid="increment-btn"
+            onClick={() => dispatch(increment())}
+            style={{width: '100%',background: 'linear-gradient(90deg, #10b981 0%, #059669 100%)',
+              color: 'white',fontWeight: '600',padding: '16px 32px',
+              borderRadius: '12px',border: 'none',fontSize: '18px',
+              cursor: 'pointer',marginBottom: '16px'}}>
+            increment
+          </button>
 
-        {/* 
-          Removed decrement button to satisfy Cypress test.
-          DO NOT REMOVE in real app — only for exam constraints.
-        */}
+          <button
+            data-testid="decrement-btn"
+            onClick={() => dispatch(decrement())}
+            style={{width: '100%',background: 'linear-gradient(90deg, #ef4444 0%, #dc2626 100%)',
+              color: 'white',fontWeight: '600',padding: '16px 32px',
+              borderRadius: '12px',border: 'none',fontSize: '18px',
+              cursor: 'pointer'}}>
+            decrement
+          </button>
+        </div>
 
-        <div style={{ marginTop: '32px', fontSize: '14px', color: '#6b7280' }}>
+        <div style={{marginTop: '32px',fontSize: '14px',color: '#6b7280'}}>
           <p>Built with React & Custom Redux Pattern</p>
         </div>
       </div>
